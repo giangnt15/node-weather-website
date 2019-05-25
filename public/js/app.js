@@ -1,15 +1,15 @@
-
-
 const weatherForm = document.querySelector('form')
 const message1 = document.querySelector("#message-1");
 const message2 = document.querySelector("#message-2");
+
+
 
 weatherForm.onsubmit = (event) => {
     event.preventDefault();
     const address = document.querySelector('input');
     message1.innerHTML = 'Loading...';
     message2.innerHTML = ''
-    fetch(`http://localhost:3000/weather?address=${address.value}`).then(data => {
+    fetch(`/weather?address=${address.value}`).then(data => {
         data.json().then(data => {
             if (data.error){
                 console.log(data.error)
